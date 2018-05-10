@@ -9,7 +9,7 @@ client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 client.connect((targetHost, targetPort))
 client.send(bytes('GET / HTTP/1.1\r\nHOST: google.com\r\n\r\n','utf-8'))
 response = client.recv(4096)
-print('TCP CLIENT: \n\n')
+print('TCP CLIENT: \n')
 print(response)
 
 targetHost = '127.0.0.1'

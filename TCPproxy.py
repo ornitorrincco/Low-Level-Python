@@ -41,13 +41,34 @@ def hexdump(src, length=16):
         print(b'\n'.join(result))
 
 def receive_from(connection):
-    bbuffer = ''
+    buffer = ''
 
     # we set a 2 second timeout; depending on your target, this may need to be adjusted
     connection.settimeout(2)
 
         try:
-            # keep reading
+            # keep reading into the buffer until there is not more data ow we settimeout
+            while True:
+                data = connection.recv(4096)
+
+                if not data:
+                    break
+
+                buffer += data
+
+        except:
+            pass
+            return buffer
+
+        # modify any request destined for the remote HOST
+def request_handler(buffer):
+    # perform packet modifications
+    return buffer
+
+    # modify any responses destined for the local HOST
+def response_handler(buffer):
+    # perform packet modifications
+    return buffer
 
 def proxy_handler(client_socket, remote_host, remote_port, receive_first):
     # connect to the remote host
