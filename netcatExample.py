@@ -143,7 +143,7 @@ def client_handler(client_socket):
                 client_socket.send(response)
 def main():
     global listen
-    global property
+    global port
     global execute
     global command
     global upload_destination
