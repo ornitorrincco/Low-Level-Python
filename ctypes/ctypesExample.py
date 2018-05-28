@@ -15,8 +15,8 @@ print(seitz.value)
 # only in linux
 # libc = CDLL('libc.so.6')
 # libc.printf(bytes('Testing: %s','utf-8'), bytes("Hello World!\n",'utf-8'))
-class beer_recipe(Structure):
-    _fields_ = [
-    ("amt_barley", c_int),
-    ("amt_water", c_int),
-    ]
+# class beer_recipe(Structure):
+#     _fields_ = [
+#     ("amt_barley", c_int),
+#     ("amt_water", c_int),
+#     ]
