@@ -38,7 +38,8 @@ def handle_client(client_socket):
         print('[*] Received: %s' % request)
         time.sleep(1)
         # client_socket.close()
-        # \x02BGHB0PROC_GRIDEX 00Favorites\x02ND\r\x00
+        if b'\x02BGHB0     MENUDO 00Log Out\x02ND\r\x00' in request:
+            client_socket.close()
     except:
         print('Something bad Happend in Handler client')
 while True:
