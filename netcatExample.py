@@ -31,7 +31,6 @@ def usage():
 
 def client_sender(buffer):
     client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-
     try:
         # connect to out target target host
         client.connect((target, port))
@@ -39,12 +38,10 @@ def client_sender(buffer):
         if len(buffer):
             client.send(buffer)
             print(buffer)
-
         while True:
             # now wait for data back
             recv_len = 1
             response = ''
-
             while recv_len:
                 data = client.recv(4096)
                 print('data printer:')
@@ -53,13 +50,10 @@ def client_sender(buffer):
                 response += data
                 if recv_len < 4096:
                     break
-
             print(response)
-
             # wait for more input
             buffer = raw_input('')
             buffer += '\n'
-
             # send it off
             client.send(buffer)
     except:
@@ -69,16 +63,12 @@ def client_sender(buffer):
 
 def server_loop():
     global target
-
     # if no target is defined, we listen on all interfaces
     if not len(target):
         target = '0.0.0.0'
-
     server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     server.bind((target, port))
-
     server.listen(5)
-
     while True:
         client_socket, addr = server.accept()
         # spin off a thread to handle our new client_socket
@@ -116,7 +106,6 @@ def client_handler(client_socket):
             file_descriptor = open(upload_destination, 'wb')
             file_descriptor.write(file_buffer)
             file_descriptor.close()
-
             # acknowledge that we wrote the file out
             client_socket.send('Successfully saved fiel to %s\r\n' % upload_destination)
         except:
