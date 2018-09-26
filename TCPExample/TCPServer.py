@@ -2,8 +2,8 @@ import socket
 import threading
 import time
 
-bind_ip = "localhost"
-bind_port = 23
+bind_ip = "0.0.0.0"
+bind_port = 4370
 
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
@@ -14,32 +14,80 @@ server.listen(5)
 print('[*] Listening on %s:%d' % (bind_ip, bind_port))
 
 # is the client-handling thread
+# def handle_client(client_socket):
+#     try:
+#         request = client_socket.recv(1024)
+#         print('[*] Received: %s' % request)
+#         time.sleep(1)
+#         # send back a packet
+#         client_socket.send(b'Enter your user id:')
+#         request = client_socket.recv(1024)
+#         print('[*] Received: %s' % request)
+#         time.sleep(1)
+#         # client_socket.send(b'dictionary:')
+#         client_socket.send(b'user password:')
+#         request = client_socket.recv(1024)
+#         print('[*] Received: %s' % request)
+#         time.sleep(1)
+#         client_socket.send(b'dictionary:')
+#         request = client_socket.recv(1024)
+#         print('[*] Received: %s' % request)
+#         time.sleep(1)
+#         client_socket.send(b'copyright')
+#         request = client_socket.recv(1024)
+#         print('[*] Received: %s' % request)
+#         time.sleep(1)
+#         # client_socket.close()
+#         if b'\x02BGHB0     MENUDO 00Log Out\x02ND\r\x00' in request:
+#             client_socket.close()
+#     except:
+#         print('Something bad Happend in Handler client')
 def handle_client(client_socket):
     try:
         request = client_socket.recv(1024)
         print('[*] Received: %s' % request)
-        time.sleep(1)
-        # send back a packet
-        client_socket.send(b'Enter your user id:')
+        # client_socket.send(b'\xff\xfd\x01\xff\xfd\x1f\xff\xfb\x01\xff\xfb\x03\r\r\nZEM800 login: PP\x82}\x08\x00\x00\x00\xe8\x03\x17\xfc\x00\x00\x00\x00\r\nPassword:')
         request = client_socket.recv(1024)
         print('[*] Received: %s' % request)
-        time.sleep(1)
-        # client_socket.send(b'dictionary:')
-        client_socket.send(b'user password:')
         request = client_socket.recv(1024)
         print('[*] Received: %s' % request)
-        time.sleep(1)
-        client_socket.send(b'dictionary:')
         request = client_socket.recv(1024)
         print('[*] Received: %s' % request)
-        time.sleep(1)
-        client_socket.send(b'copyright')
         request = client_socket.recv(1024)
         print('[*] Received: %s' % request)
-        time.sleep(1)
-        # client_socket.close()
-        if b'\x02BGHB0     MENUDO 00Log Out\x02ND\r\x00' in request:
-            client_socket.close()
+        request = client_socket.recv(1024)
+        print('[*] Received: %s' % request)
+        request = client_socket.recv(1024)
+        print('[*] Received: %s' % request)
+        request = client_socket.recv(1024)
+        print('[*] Received: %s' % request)
+        request = client_socket.recv(1024)
+        print('[*] Received: %s' % request)
+        request = client_socket.recv(1024)
+        print('[*] Received: %s' % request)
+        request = client_socket.recv(1024)
+        print('[*] Received: %s' % request)
+        request = client_socket.recv(1024)
+        print('[*] Received: %s' % request)
+        request = client_socket.recv(1024)
+        print('[*] Received: %s' % request)
+        request = client_socket.recv(1024)
+        print('[*] Received: %s' % request)
+        request = client_socket.recv(1024)
+        print('[*] Received: %s' % request)
+        request = client_socket.recv(1024)
+        print('[*] Received: %s' % request)
+        request = client_socket.recv(1024)
+        print('[*] Received: %s' % request)
+        request = client_socket.recv(1024)
+        print('[*] Received: %s' % request)
+        request = client_socket.recv(1024)
+        print('[*] Received: %s' % request)
+        request = client_socket.recv(1024)
+        print('[*] Received: %s' % request)
+         #         request = client_socket.recv(1024)
+        #         print('[*] Received: %s' % request)
+        client_socket.close()
     except:
         print('Something bad Happend in Handler client')
 while True:
